@@ -1,8 +1,9 @@
 const _ = require('lodash');
 var data = [];
+var idTweet = 0; // creo una variable para crear los id de los tweets
 
 function add (name, content) {
-    data.push({ name: name, content: content });
+    data.push({ id: (idTweet++), name: name, content: content }); // Modififico el push agregando id
   }
   function list () {
     return _.cloneDeep(data);
@@ -11,7 +12,6 @@ function add (name, content) {
     return _.cloneDeep(_.filter(data, properties));
   }
   module.exports = { add: add, list: list, find: find };
-
 
 
 
